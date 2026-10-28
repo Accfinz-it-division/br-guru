@@ -48,6 +48,10 @@
 }
 
 .header {
+  z-index: 1;
+  opacity: 90%;
+  top: 20px;
+  position: sticky;
   min-height: 76px;
   display: flex;
   align-items: center;
