@@ -79,15 +79,36 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.servicesSection} id="services" aria-labelledby="services-heading">
-        <div className={styles.sectionIntro}>
+      <section>
+        <div className={styles.service}>
           <div>
             <p className={styles.eyebrow}><span /> HOW WE HELP</p>
             <h2 id="services-heading">The essentials, <em>handled.</em></h2>
+          </div>   
+          <p className={styles.sectionDescription}>
+              From your first registration to the details that keep a business
+              moving, get support that makes the process easier to understand.
+            </p>
+          </div> 
+           <div className={styles.serviceGrid}>
+          {services.map((service) => (
+            <a className={styles.serviceCard} href="#contact" key={service.number}>
+              <span className={styles.serviceNumber}>{service.number}</span>
+              <span className={styles.serviceArrow} aria-hidden="true">↗</span>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              {/* <span className={styles.serviceLink}>Find out more <span aria-hidden="true">→</span></span> */}
+            </a>
+          ))}
+        </div>  
+      </section>
+      {/* <section className={styles.servicesSection} id="services" aria-labelledby="services-heading">
+        <div className={styles.sectionIntro}>
+          <div>
+           
           </div>
           <p className={styles.sectionDescription}>
-            From your first registration to the details that keep a business
-            moving, get support that makes the process easier to understand.
+          
           </p>
         </div>
         <div className={styles.serviceGrid}>
@@ -101,7 +122,7 @@ export default function Home() {
             </a>
           ))}
         </div>
-      </section>
+      </section> */}
 
       <section className={styles.processSection} id="how-it-works" aria-labelledby="process-heading">
         <div className={styles.processHeading} id="about">
