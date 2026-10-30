@@ -46,11 +46,23 @@ body {
 .announcementDot,
 .eyebrow span,
 .visualFootnote span {
-  width: 6px;
-  height: 6px;
-  display: inline-block;
+  content: "";
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: var(--lime);
+  background: linear-gradient(135deg, #d3ef86, #245c45);
+  box-shadow: 0 0 0 6px rgba(36, 92, 69, 0.08);
+animation: visible 2s ease-in-out infinite;
+}
+
+@keyframes visible {
+    0% {
+        opacity: 50%;
+    } 50% {
+        opacity: 100%;
+    } 100% {
+        opacity: 50%;
+    }
 }
 
 .announcement a {
@@ -227,9 +239,13 @@ body {
 }
 
 .eyebrow span {
-  width: 7px;
-  height: 7px;
+  width: 10px;
+  height: 10px;
   background: #83a954;
+}
+
+.h2section{
+  font-size: 20px !important;
 }
 
 .hero h1,
@@ -737,6 +753,11 @@ body{
   font-weight: 400;
 }
 
+.steps div {
+  width: 60vw;
+  padding: 30px;
+}
+
 .step p {
   margin: 0;
   color: var(--muted);
@@ -1098,4 +1119,8 @@ body{
   :global(body) {
     overflow-x: hidden;
   }
+}
+
+.navigation a[data-active="true"] {
+  color: #41c1cc;
 }

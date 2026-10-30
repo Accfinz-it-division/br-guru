@@ -108,18 +108,51 @@ const services = [
 const steps = [
   {
     number: "01",
-    title: "Tell us your plans",
-    description: "Share what you’re starting and where you are in the process.",
+    title: "𝗡𝗮𝗺𝗲 𝗥𝗲𝘀𝗲𝗿𝘃𝗮𝘁𝗶𝗼𝗻",
+    description: "- Name Search: Conduct a name search to ensure that the proposed company name is not already in use. This can be done through the Department of the Registrar of Companies (ROC) website - Name Reservation Application: Submit Form A16 (Name Reservation Form) to reserve the company name. This name will be reserved for 3 months.",
   },
   {
     number: "02",
-    title: "Get a clear checklist",
-    description: "We’ll help you understand the information and documents required.",
+    title: "𝗣𝗿𝗲𝗽𝗮𝗿𝗮𝘁𝗶𝗼𝗻 𝗼𝗳 𝗗𝗼𝗰𝘂𝗺𝗲𝗻𝘁𝘀",
+    description: `- Articles of Association: Prepare the Articles of Association for the company, which outlines the regulations for the management of the company.
+- Form 1: Application for Registration of a Company. This includes the company’s name, the registered office address, details of directors, and details of the secretary.
+- Form 18: Consent and Certificate of Director.
+- Form 19: Consent and Certificate of Secretary.`,
   },
   {
     number: "03",
-    title: "Move forward with confidence",
-    description: "Get practical support as you work through your next steps.",
+    title: "𝗦𝘂𝗯𝗺𝗶𝘀𝘀𝗶𝗼𝗻 𝗼𝗳 𝗗𝗼𝗰𝘂𝗺𝗲𝗻𝘁𝘀",
+    description: `Submit the following documents to the Department of the Registrar of Companies:
+- Form 1 (Application for Registration of a Company)
+- Articles of Association
+- Form 18 (Consent and Certificate of Director)
+- Form 19 (Consent and Certificate of Secretary)
+- Name Reservation Certificate received after name reservation.`,
+  },
+  {
+    number: "04",
+    title: "𝗣𝗮𝘆𝗺𝗲𝗻𝘁 𝗼𝗳 𝗥𝗲𝗴𝗶𝘀𝘁𝗿𝗮𝘁𝗶𝗼𝗻 𝗙𝗲𝗲𝘀",
+    description: "Pay the prescribed registration fees. The fee structure can be obtained from the ROC website or their office.",
+  },
+  {
+    number: "05",
+    title: "𝗜𝘀𝘀𝘂𝗮𝗻𝗰𝗲 𝗼𝗳 𝗖𝗲𝗿𝘁𝗶𝗳𝗶𝗰𝗮𝘁𝗲 𝗼𝗳 𝗜𝗻𝗰𝗼𝗿𝗽𝗼𝗿𝗮𝘁𝗶𝗼𝗻",
+    description: `Upon approval of the submitted documents and payment of fees, the Registrar of Companies will issue a Certificate of Incorporation. This certificate signifies that the company is duly incorporated under the Companies Act No. 7 of 2007.`,
+  },
+  {
+    number: "06",
+    title: "𝗣𝗼𝘀𝘁-𝗜𝗻𝗰𝗼𝗿𝗽𝗼𝗿𝗮𝘁𝗶𝗼𝗻 𝗥𝗲𝗾𝘂𝗶𝗿𝗲𝗺𝗲𝗻𝘁𝘀",
+    description: `- Register for Taxes: Register with the Inland Revenue Department to obtain a Taxpayer Identification Number (TIN) and other necessary tax registrations such as VAT if applicable.
+- Open a Bank Account: Open a bank account in the name of the company for financial transactions.
+- Maintain Statutory Registers: Maintain the necessary statutory registers, including the register of members, register of directors, and register of secretaries.
+- File Annual Returns: Ensure that annual returns and other necessary documents are filed with the Registrar of Companies as required.`,
+  },
+  {
+    number: "",
+    title: "𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗖𝗼𝗻𝘀𝗶𝗱𝗲𝗿𝗮𝘁𝗶𝗼𝗻𝘀",
+    description: `- Board of Directors: A private limited company must have at least one director who is ordinarily resident in Sri Lanka.
+- Company Secretary: A company secretary must be appointed. The secretary can be an individual or a corporate entity.
+- Registered Office: The company must have a registered office in Sri Lanka.`,
   },
 ];
 
@@ -136,9 +169,9 @@ export default function Home() {
             <span>a proper start.</span>
           </h1>
           <p className={styles.heroDescription}>
-          With over 10 years of experience, our professional team provides high-quality services at the best prices, with no additional charges, fast service, and free consultations.
+            With over 10 years of experience, our professional team provides high-quality services at the best prices, with no additional charges, fast service, and free consultations.
           </p>
-          <img className={styles.image} src="/image.png" alt="human" />
+          <img className={styles.image} src="/company.png" alt="human" />
         </div>
       </section>
 
@@ -186,32 +219,32 @@ export default function Home() {
           ))}
         </div>
       </section> */}
-    
+
       <section className={styles.processSection} id="how-it-works" aria-labelledby="process-heading">
         <video className={styles.video} autoPlay muted controls  >
-      <source  src="/home-page-video.mp4" type="video/mp4" />
+          <source src="/home-page-video.mp4" type="video/mp4" />
         </video>
-      
+
         <div className={styles.processHeading}>
-          <p className={styles.eyebrow}><span /> A LITTLE LESS OVERWHELMING</p>
-          <h2 id="process-heading">Good things happen<br />when the path is <em>clear.</em></h2>
-          <p>Business paperwork doesn’t have to feel like a maze. We bring clarity to the process and keep you moving, one step at a time.</p>
+          <p className={styles.eyebrow}><span /> Most Trusted & Professional Business Consultancy Service in Sri Lanka,</p>
+          <h2 id="process-heading">ඔබේ  ව්‍යාපාරය <br />නිත්‍යානුකූලව සමාගමක් ලෙස <em>ලියාපදිංචි කිරීමට අවශ්‍ය ද?</em></h2>
+          <p>ව්‍යාපාරය ලියාපදිංචි කිරීම තුලින් ඔබගේ ව්‍යාපාරයේ නෛතික පිලිගැනීම හා  පාරිභෝගිකයන්, කොටස්කරුවන් සහ මූල්‍ය ආයතනයන්හි  විශ්වාසනීයත්වය තවදුරටත් තහවුරු කරගත හැක.</p>
           <a className={styles.textButton} href="#contact">Meet your business partner <span aria-hidden="true">↗</span></a>
         </div>
-        <div className={styles.steps}>
-          {steps.map((step) => (
-            <div className={styles.step} key={step.number}>
-              <span className={styles.stepNumber}>{step.number}</span>
-              <div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </div>
-              <span className={styles.stepMark} aria-hidden="true">↗</span>
-            </div>
-          ))}
-        </div>
-      </section>
 
+      </section>
+      <div className={styles.steps}>
+        {steps.map((step) => (
+          <div className={styles.step} key={step.number}>
+            <span className={styles.stepNumber}>{step.number}</span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+            <span className={styles.stepMark} aria-hidden="true">↗</span>
+          </div>
+        ))}
+      </div>
       <section className={styles.contactSection} id="contact" aria-labelledby="contact-heading">
         <div>
           <p className={styles.eyebrow}><span /> READY WHEN YOU ARE</p>
@@ -226,14 +259,7 @@ export default function Home() {
         <div className={styles.contactDecoration} aria-hidden="true">br<span>guru</span></div>
       </section>
 
-      <footer className={styles.footer}>
-        {/* <a className={styles.brand} href="#" aria-label="BR Guru home">
-          <span className={styles.brandMark} aria-hidden="true">br</span>
-          <span className={styles.brandName}>br<span>guru</span><small>.lk</small></span>
-        </a> */}
-        <p>Business registration &amp; corporate services in Sri Lanka.</p>
-        <span className={styles.copyright}>© 2026 BR Guru. All rights reserved.</span>
-      </footer>
+
       {/* <img className={styles.whatsapp} src="/whatsapp.gif" alt="whatsapp" /> */}
     </main>
   );
