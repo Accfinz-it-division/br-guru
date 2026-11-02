@@ -187,7 +187,7 @@ export default function Home() {
         </div>
         <div className={styles.serviceGrid}>
           {services.map((service) => (
-            <a className={styles.serviceCard} href="#contact" key={service.number}>
+            <a className={styles.serviceCard} href="/services" key={service.number}>
               <span className={styles.serviceNumber}>{service.number}</span>
               <span className={styles.serviceArrow} aria-hidden="true">↗</span>
               <h3>{service.title}</h3>
@@ -229,7 +229,9 @@ export default function Home() {
           <p className={styles.eyebrow}><span /> Most Trusted & Professional Business Consultancy Service in Sri Lanka,</p>
           <h2 id="process-heading">ඔබේ  ව්‍යාපාරය <br />නිත්‍යානුකූලව සමාගමක් ලෙස <em>ලියාපදිංචි කිරීමට අවශ්‍ය ද?</em></h2>
           <p>ව්‍යාපාරය ලියාපදිංචි කිරීම තුලින් ඔබගේ ව්‍යාපාරයේ නෛතික පිලිගැනීම හා  පාරිභෝගිකයන්, කොටස්කරුවන් සහ මූල්‍ය ආයතනයන්හි  විශ්වාසනීයත්වය තවදුරටත් තහවුරු කරගත හැක.</p>
-          <a className={styles.textButton} href="#contact">Meet your business partner <span aria-hidden="true">↗</span></a>
+          <a className={styles.textButton} href="https://wa.me/+94718035537" target="_blank">
+            Meet your business partner <span aria-hidden="true">↗</span>
+          </a>
         </div>
 
       </section>
@@ -252,7 +254,7 @@ export default function Home() {
         </div>
         <div className={styles.contactAside}>
           <p>Explore the services below to find a good place to begin with your business.</p>
-          <a className={styles.contactButton} href="#services">
+          <a className={styles.contactButton} href="/services">
             Explore services <span aria-hidden="true">↗</span>
           </a>
         </div>

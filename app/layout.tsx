@@ -33,6 +33,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <p>Business registration &amp; corporate services in Sri Lanka.</p>
         <span className={styles.copyright}>© 2026 BR Guru. All rights reserved.</span>
       </footer>
+      <div className={styles.popupWhatsApp}>
+        <a href="https://wa.me/+94718035537" target="_blank">
+          <img src="/whatsapp.gif" alt="WhatsApp" width={60} height={60} />
+        </a>
+      </div>
       </body>
     </html>
   );

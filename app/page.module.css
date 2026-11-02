@@ -1122,5 +1122,18 @@ body{
 }
 
 .navigation a[data-active="true"] {
-  color: #41c1cc;
+  color: rgb(63, 60, 230);
+  cursor: default;
+}
+
+
+.popupWhatsApp{
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  backgroundColor: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  borderRadius: 5px;
+  fontSize: 12px;
 }
