@@ -164,9 +164,7 @@ export default function Home() {
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}><span />සැඟවුණු ගාස්තු කිසිවක් නොමැති , ශ්‍රී ලංකාවේ අංක 1 විශ්වාසනීයම ආයතනය   BR Consultants  සමගින්  ඔබේ සමාගමත් ලියාපදිංචි කරගන්න අදම අමතන්න!</p>
           <h1 id="hero-heading">
-            Big ideas deserve
-            <br />
-            <span>a proper start.</span>
+            BR Guru
           </h1>
           <p className={styles.heroDescription}>
             With over 10 years of experience, our professional team provides high-quality services at the best prices, with no additional charges, fast service, and free consultations.

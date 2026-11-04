@@ -1127,13 +1127,129 @@ body{
 }
 
 
-.popupWhatsApp{
+.popupWhatsApp {
   position: fixed;
-  bottom: 10px;
-  right: 0;
-  backgroundColor: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 5px 10px;
-  borderRadius: 5px;
-  fontSize: 12px;
+  z-index: 20;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.offerPopup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 210px;
+  padding: 16px 42px 16px 18px;
+  border: 1px solid rgba(36, 92, 69, 0.12);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(23, 36, 31, 0.18);
+  color: #17241f;
+  animation: offerPopupEnter 240ms ease-out both;
+}
+
+.offerPopup::after {
+  position: absolute;
+  right: 22px;
+  bottom: -7px;
+  width: 12px;
+  height: 12px;
+  border-right: 1px solid rgba(36, 92, 69, 0.12);
+  border-bottom: 1px solid rgba(36, 92, 69, 0.12);
+  background: #fff;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.offerTitle {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.offerDescription {
+  color: #64716a;
+  font-size: 12px;
+}
+
+.offerClose {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #64716a;
+  cursor: pointer;
+  font-size: 21px;
+  line-height: 1;
+}
+
+.offerClose:hover {
+  background: #f2f5f1;
+  color: #17241f;
+}
+
+.offerClose:focus-visible,
+.whatsAppLink:focus-visible {
+  outline: 3px solid #245c45;
+  outline-offset: 4px;
+}
+
+.whatsAppLink {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  filter: drop-shadow(0 5px 12px rgba(23, 36, 31, 0.2));
+  transition: transform 160ms ease;
+}
+
+.whatsAppLink:hover {
+  transform: translateY(-2px);
+}
+
+.whatsAppLink img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 60px;
+}
+
+@keyframes offerPopupEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .popupWhatsApp {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offerPopup {
+    animation: none;
+  }
+
+  .whatsAppLink {
+    transition: none;
+  }
 }

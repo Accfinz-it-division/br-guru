@@ -3,9 +3,38 @@
 import { useEffect, useRef } from "react";
 import styles from "./page.module.css";
 
+const pageMetadata = {
+  title: 'Business Registration & Corporate Services',
+  description:
+    'Explore business registration, company incorporation, tax consultancy and corporate secretarial services in Sri Lanka.',
+  alternates: {
+    canonical: '/about',
+  },
+};
+
 export default function About() {
     const aboutRef = useRef<HTMLDivElement>(null);
     const statsRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    document.title = pageMetadata.title;
+
+    let description = document.head.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (!description) {
+      description = document.createElement("meta");
+      description.name = "description";
+      document.head.appendChild(description);
+    }
+    description.content = pageMetadata.description;
+
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = new URL(pageMetadata.alternates.canonical, window.location.origin).href;
+  }, []);
 
     useEffect(() => {
         const section = statsRef.current;

@@ -1,4 +1,16 @@
+import { Metadata } from "next";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: 'Business Registration & Corporate Services',
+  description:
+    'Explore business registration, company incorporation, tax consultancy and corporate secretarial services in Sri Lanka.',
+
+  alternates: {
+    canonical: '/services',
+  },
+}
+
 const accountingServices = [
     {
         number: "01",
