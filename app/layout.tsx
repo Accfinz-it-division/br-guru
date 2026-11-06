@@ -1,10 +1,8 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
-
-import type { Metadata } from 'next'
 import OrganizationSchema from "@/components/OrganizationSchema";
-
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://br-guru.vercel.app'),
@@ -46,16 +44,23 @@ export const metadata: Metadata = {
   },
 }
 
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
-      <body style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <body className={styles.layoutbody}>
+        <div className={styles.topbar}>
+          <p>+94 71 803 5537</p>
+          <a className={styles.socialIcon} href="https://www.facebook.com/BRGurusrilanka" target="_blank" rel="noopener noreferrer">
+            <img src="/facebook.png" alt="Facebook" />
+          </a>
+
+        </div>
         <OrganizationSchema />
+        {/* Naviagation */}
         <div className={styles.headers}>
           <a className={styles.brand} href="#" aria-label="BR Guru home">
-            <Image src="/logo.png" alt="" width={160} height={60} className={styles.logo}/>
-            {/* <span className={styles.brandMark} aria-hidden="true">br</span>
-            <span className={styles.brandName}>br<span>guru</span><small>.lk</small></span> */}
+            <Image src="/logo.png" alt="" width={160} height={60} className={styles.logo} />
           </a>
           <nav className={styles.navigation} aria-label="Main navigation">
             <Link href="/">Home</Link>
@@ -64,31 +69,40 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Link href="#about">Tools</Link>
           </nav>
         </div>
+        {/* Body */}
         <main>{children}</main>
         <br />
-        <footer className={styles.footer} style={{ marginTop: "auto" }}>
-        {/* <a className={styles.brand} href="#" aria-label="BR Guru home">
-          <span className={styles.brandMark} aria-hidden="true">br</span>
-          <span className={styles.brandName}>br<span>guru</span><small>.lk</small></span>
-        </a> */}
-        <p>Business registration &amp; corporate services in Sri Lanka.</p>
-        <span className={styles.copyright}>© 2026 BR Guru. All rights reserved.</span>
-      </footer>
-      <div className={styles.popupWhatsApp}>
-        <div className={styles.offerPopup} role="status">
-          <span className={styles.offerTitle}>Free of charge</span>
-          <span className={styles.offerDescription}>Get in touch to learn more.</span>
+
+        {/* Footer */}
+        <footer >
+
+          {/* <img className={styles.footerImage} src="/footer.jpg" alt="" /> */}
+          <div className={styles.footer}>
+            <p>Business registration &amp; corporate services in Sri Lanka.</p>
+            <span className={styles.copyright}>© 2026 BR Guru. All rights reserved.</span>
+          </div>
+
+        </footer> {/* Popup || WhatsApp */}
+        <div className={styles.popupWhatsApp}>
+
+          {/* Popup */}
+          <div className={styles.offerPopup} role="status">
+            <span className={styles.offerTitle}>Free of charge</span>
+            <span className={styles.offerDescription}>Get in touch to learn more.</span>
+          </div>
+          {/* WhatsApp Link */}
+          <a
+            className={styles.whatsAppLink}
+            href="https://wa.me/+94718035537"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat with BR Guru on WhatsApp"
+          >
+            <div className={styles.whatsAppStyleBlur}>  </div>
+            <Image className={styles.whatsAppLinkImage} src="/whatsapp.gif" alt="" width={50} height={50} />
+          </a>
         </div>
-        <a
-          className={styles.whatsAppLink}
-          href="https://wa.me/+94718035537"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat with BR Guru on WhatsApp"
-        >
-          <Image src="/whatsapp.gif" alt="" width={60} height={60} />
-        </a>
-      </div>
+
       </body>
     </html>
   );
