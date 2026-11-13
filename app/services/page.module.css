@@ -1,3 +1,79 @@
+.heading {
+  background-color: #245c45;
+  max-height: 50vh;
+  text-align: center;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  /* position: relative; */
+}
+
+.headingParagrapgh {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-top: 50px;
+  color: white;
+  font-weight: 900;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.headingSubParagrapgh {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  /* padding-top: 50px; */
+  color: white;
+  /* font-weight: 900; */
+  font-size: 20px;
+  padding-bottom: 30px;
+}
+.arrow {
+  /* display: none; */
+  max-width: 40px;
+  position: sticky;
+  right: 0;
+  top: 60vh;
+}
+.arrowLink {
+  position: fixed;
+  z-index: 19;
+  top: auto;
+  right: auto;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  left: max(18px, env(safe-area-inset-left));
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(240, 213, 141, 0.55);
+  border-radius: 50%;
+  background: var(--theme-navy);
+  box-shadow: 0 8px 24px rgba(12, 28, 48, 0.24);
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.arrowLink:hover {
+  transform: translateY(-3px);
+  background: var(--theme-teal-dark);
+}
+
+.arrow {
+  position: static;
+  display: block;
+  width: 22px;
+  height: 16px;
+  max-width: none;
+  object-fit: cover;
+  object-position: center top;
+  filter: invert(78%) sepia(43%) saturate(511%) hue-rotate(2deg) brightness(94%) contrast(88%);
+}
+.arrowLink {
+  position: sticky;
+  right: 0;
+  top: 60vh;
+  z-index: 1;
+}
 .missionCard {
   background: linear-gradient(180deg, #ffffff 0%, #f5f8f3 100%);
   border: 1px solid rgba(17, 38, 31, 0.08);
@@ -23,6 +99,7 @@
   box-shadow: 0 0 0 6px rgba(36, 92, 69, 0.08);
   animation: visible 2s ease-in-out infinite;
 }
+
 
 @keyframes visible {
     0% {

@@ -160,6 +160,12 @@ const secretarialServices = [
 export default function Services() {
 
     return (<>
+        <div id="sevice-hero-heading" className={styles.heading}>
+            <p className={styles.headingParagrapgh}>
+                Everything Your Business Needs to Move Forward <br /></p>
+<p className={styles.headingSubParagrapgh}>From essential business services to operational support, we bring everything together to simplify processes, maintain compliance, and drive business success.
+            </p>
+        </div>
         <p className={styles.eyebrow}>Accounting Services</p>
         <main className={styles.valueGrid}>
 
@@ -172,6 +178,9 @@ export default function Services() {
                 </div>
             ))}
         </main >
+        <a className={styles.arrowLink} href="#sevice-hero-heading">
+        <img className={styles.arrow} src="/arrow.png" alt="arrow" />
+      </a>
         <p className={styles.eyebrow}>Tax Consultancy Services</p>
         <main className={styles.valueGrid}>
 

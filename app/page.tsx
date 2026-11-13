@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useRef } from "react";
 import styles from "./page.module.css";
 import { ScrollTimeline } from "@/components/lightswind/scroll-timeline";
 
@@ -159,6 +161,123 @@ const services = [
 
 
 export default function Home() {
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+
+      videoElement.animate(
+        [{ opacity: 0 }, { opacity: 1 }],
+        { duration: 1500, easing: "ease-in-out" },
+      );
+      observer.disconnect();
+    });
+
+    observer.observe(videoElement);
+    return () => observer.disconnect();
+  }, []);
+
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const imageElement = imageRef.current;
+    if (!imageElement || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      imageElement.animate(
+        [
+          { opacity: 0 },
+          { opacity: 1 },
+        ],
+        { duration: 1500, easing: "ease-in-out" },
+      ); observer.disconnect();
+    }); observer.observe(imageElement);
+    return () => observer.disconnect();
+  }, []);
+
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = heroRef.current;
+    if (!element || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+
+        element.animate(
+          [
+            { transform: "translateY(30px)", opacity: 0 },
+            { transform: "translateY(0)", opacity: 1 },
+          ],
+          { duration: 700, easing: "ease-out", fill: "both" },
+        );
+        observer.disconnect();
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  const aboutRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = aboutRef.current;
+    if (!element || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+
+        element.animate(
+          [
+            { transform: "translateY(30px)", opacity: 0 },
+            { transform: "translateY(0)", opacity: 1 },
+          ],
+          { duration: 700, easing: "ease-out", fill: "both" },
+        );
+        observer.disconnect();
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  const stepsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = stepsRef.current;
+    if (!element || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+
+        element.animate(
+          [
+            { transform: "translateX(-60px)", opacity: 0 },
+            { transform: "translateX(0)", opacity: 1 },
+          ],
+          { duration: 700, easing: "ease-out", fill: "both" },
+        );
+        observer.disconnect();
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+  
   return (
     <main className={styles.page}>
       {/* Background Image */}
@@ -168,8 +287,8 @@ export default function Home() {
 
       {/* Header */}
       <section className={styles.hero} aria-labelledby="hero-heading">
-        <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}><span />සැඟවුණු ගාස්තු කිසිවක් නොමැති , ශ්‍රී ලංකාවේ අංක 1 විශ්වාසනීයම ආයතනය   BR Consultants  සමගින්  ඔබේ සමාගමත් ලියාපදිංචි කරගන්න අදම අමතන්න!</p>
+        <div id="hero-copy" ref={heroRef} className={styles.heroCopy}>
+          <p  className={styles.eyebrow}><span />සැඟවුණු ගාස්තු කිසිවක් නොමැති , ශ්‍රී ලංකාවේ අංක 1 විශ්වාසනීයම ආයතනය   BR Consultants  සමගින්  ඔබේ සමාගමත් ලියාපදිංචි කරගන්න අදම අමතන්න!</p>
           <h1 id="hero-heading">
             BR Guru
           </h1>
@@ -177,12 +296,12 @@ export default function Home() {
             With over 10 years of experience, our professional team provides high-quality services at the best prices, with no additional charges, fast service, and free consultations.
           </p>
         </div>
-        <img className={styles.heroImage} src="/companyImage.png" alt="human" />
+        <img ref={imageRef} className={styles.heroImage} src="/companyImage.png" alt="human" />
       </section>
       <img className={styles.backgroundImageShine} src="/background-03.png" alt="" />
-      
+
       {/* Services Section */}
-      
+
       <section>
         <div className={styles.service}>
           <div>
@@ -193,7 +312,7 @@ export default function Home() {
             We simplify business registration and corporate services so you can focus on growing your business.
           </p>
         </div>
-    
+
         <div className={styles.serviceGrid}>
           {services.map((service) => (
             <a className={styles.serviceCard} href="/services" key={service.number}>
@@ -206,16 +325,19 @@ export default function Home() {
         </div>
       </section>
 
+      <a className={styles.arrowLink} href="#hero-heading">
+        <img className={styles.arrow} src="/arrow.png" alt="arrow" />
+      </a>
 
       <section className={styles.processSection} id="how-it-works" aria-labelledby="process-heading">
-        
+
         {/* Video  Section */}
-        
-        <video className={styles.video} autoPlay muted controls  >
+
+        <video ref={videoRef} className={styles.video} autoPlay muted controls  >
           <source src="/home-page-video.mp4" type="video/mp4" />
         </video>
 
-        <div className={styles.processHeading}>
+        <div ref={aboutRef} className={styles.processHeading}>
           <p className={styles.eyebrow}><span /> Most Trusted & Professional Business Consultancy Service in Sri Lanka,</p>
           <h2 id="process-heading">ඔබේ  ව්‍යාපාරය <br />නිත්‍යානුකූලව සමාගමක් ලෙස <em>ලියාපදිංචි කිරීමට අවශ්‍ය ද?</em></h2>
           <p>ව්‍යාපාරය ලියාපදිංචි කිරීම තුලින් ඔබගේ ව්‍යාපාරයේ නෛතික පිලිගැනීම හා  පාරිභෝගිකයන්, කොටස්කරුවන් සහ මූල්‍ය ආයතනයන්හි  විශ්වාසනීයත්වය තවදුරටත් තහවුරු කරගත හැක.</p>
@@ -227,21 +349,21 @@ export default function Home() {
 
       <h3 className={styles.stepsHeading}>Company Registration Made Simple – How Does It Work? <br /> Getting your business officially registered has never been easier. Let us guide you through four simple steps to turn your business idea into reality.</h3>
       {/* Steps Section */}
-      
-      <div className={styles.steps}>
+
+      <div ref={stepsRef} className={styles.steps}>
         {steps.map((step) => (
-          <div className={styles.flipCard} key={step.number}>
-              <div className={styles.flipCardInner}>
-                <div className={styles.flipCardFront}>
-                  <h3 className={styles.stepNumber}>{step.number}</h3>
-                  {/* <p>Hover me to flip</p> */}
-                </div>
-                <div className={styles.flipCardBack}>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                </div>
+          <div className={styles.flipCard} key={step.number || step.title}>
+            <div className={styles.flipCardInner}>
+              <div className={styles.flipCardFront}>
+                <h3 className={styles.stepNumber}>{step.number}</h3>
+                {/* <p>Hover me to flip</p> */}
+              </div>
+              <div className={styles.flipCardBack}>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
               </div>
             </div>
+          </div>
         ))}
       </div>
 

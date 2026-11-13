@@ -62,15 +62,30 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <a className={styles.brand} href="#" aria-label="BR Guru home">
             <Image src="/logo.png" alt="" width={160} height={60} className={styles.logo} />
           </a>
+
           <nav className={styles.navigation} aria-label="Main navigation">
             <Link href="/">Home</Link>
             <Link href="/about">About us</Link>
             <Link href="/services">Services</Link>
             <Link href="#about">Tools</Link>
           </nav>
+
+          <details className={styles.mobileNavigation}>
+            <summary className={styles.mobileMenuSummary} aria-label="Toggle navigation menu">
+              <span aria-hidden="true">☰</span>
+              
+            </summary>
+            <nav className={styles.mobileMenuPanel} aria-label="Mobile navigation">
+              <Link href="/">Home</Link>
+              <Link href="/about">About us</Link>
+              <Link href="/services">Services</Link>
+              <Link href="#about">Tools</Link>
+            </nav>
+          </details>
+
         </div>
         {/* Body */}
-        <main>{children}</main>
+        <div>{children}</div>
         <br />
 
         {/* Footer */}

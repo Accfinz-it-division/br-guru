@@ -124,7 +124,7 @@ export default function About() {
     return (
         <main>
             <div>
-                <img ref={imageRef2} className={styles.image} src="/header-page-01.jpeg" alt="" />
+                <img ref={imageRef2} className={styles.image} src="/company-01.jpg" alt="" />
                 <img ref={imageRef} className={styles.imageMobile} src="/about-02.png" alt="" />
                 <section ref={statsRef} className={styles.stats} aria-label="Company highlights">
                     {highlights.map((item) => (
@@ -163,7 +163,7 @@ export default function About() {
                                 tailored to their goals and stage of business development.
                             </p>
                         </article>
-                        <img className={styles.MissionImage} src="/image.png" alt="" />
+                        {/* <img className={styles.MissionImage} src="/image.png" alt="" /> */}
                         {/* <article className={styles.missionCard}>
                             <span>Vision</span>
                             <h3>To become the trusted partner businesses rely on for sustainable growth.</h3>
