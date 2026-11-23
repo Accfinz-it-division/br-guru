@@ -67,7 +67,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Link href="/">Home</Link>
             <Link href="/about">About us</Link>
             <Link href="/services">Services</Link>
-            <Link href="#about">Tools</Link>
+            <Link href="brguru-incorporation.html" target="_blank" rel="noopener noreferrer">Registration</Link>
           </nav>
 
           <details className={styles.mobileNavigation}>
@@ -79,7 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <Link href="/">Home</Link>
               <Link href="/about">About us</Link>
               <Link href="/services">Services</Link>
-              <Link href="#about">Tools</Link>
+              <Link href="brguru-incorporation.html" target="_blank" rel="noopener noreferrer">Registration</Link>
             </nav>
           </details>
 

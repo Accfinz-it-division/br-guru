@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BRGuru.lk – Company Incorporation (Prototype)</title>
+<style>
+:root{--bg:#f4f6fa;--sf:#fff;--tx:#14202e;--mu:#5d6b7c;--pr:#0f4c81;--ac:#e8a317;--bd:#d9e0ea;--ok:#1a7f4b;--er:#c0392b;--wn:#9a6b00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e141c;--sf:#17202b;--tx:#e8edf4;--mu:#9aa8b8;--pr:#5aa2e6;--ac:#f0b73a;--bd:#2a3645;--ok:#4cc38a;--er:#ff7a6b;--wn:#f0b73a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e141c;--sf:#17202b;--tx:#e8edf4;--mu:#9aa8b8;--pr:#5aa2e6;--ac:#f0b73a;--bd:#2a3645;--ok:#4cc38a;--er:#ff7a6b;--wn:#f0b73a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--pr);color:#fff;padding:14px 16px}
+header b{font-size:19px}header span{opacity:.85;font-size:13px;display:block}
+main{max-width:720px;margin:0 auto;padding:16px}
+.bar{display:flex;gap:6px;margin:4px 0 6px}.bar i{flex:1;height:6px;border-radius:3px;background:var(--bd)}.bar i.on{background:var(--ac)}
+.lbl{color:var(--mu);font-size:13px;margin-bottom:10px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:18px}
+h2{margin:0 0 4px;font-size:21px}.sub{color:var(--mu);margin:0 0 14px;font-size:14px}
+label{display:block;font-weight:600;font-size:14px;margin:14px 0 4px}
+input,select,textarea{width:100%;padding:11px 12px;font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:9px}
+input:focus,select:focus{outline:2px solid var(--pr);border-color:transparent}
+.h{font-size:12.5px;color:var(--mu);margin-top:4px}.w{font-size:13px;color:var(--wn);margin-top:5px}.g{font-size:13px;color:var(--ok);margin-top:5px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:520px){.row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{padding:7px 12px;border:1px solid var(--bd);border-radius:20px;background:var(--bg);cursor:pointer;font-size:14px;user-select:none}
+.chip.on{background:var(--pr);color:#fff;border-color:var(--pr)}
+.person{border:1px solid var(--bd);border-radius:12px;padding:14px;margin-top:14px;background:var(--bg)}
+.person h3{margin:0 0 4px;font-size:16px;display:flex;justify-content:space-between}
+.roles{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}.roles label{font-weight:500;margin:0;display:flex;gap:6px;align-items:center}.roles input{width:auto}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+button{font:inherit;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;font-weight:600}
+.pri{background:var(--pr);color:#fff}.sec{background:transparent;color:var(--pr);border:1px solid var(--bd)}.lnk{background:none;color:var(--pr);padding:6px 0;text-decoration:underline}
+#err{color:var(--er);font-size:14px;margin-top:12px;white-space:pre-line}
+.tot{margin-top:10px;font-weight:600}
+.sum dt{color:var(--mu);font-size:12.5px;margin-top:10px}.sum dd{margin:0;font-weight:600}
+.trk{list-style:none;padding:0;margin:12px 0}.trk li{padding:8px 0 8px 28px;position:relative;color:var(--mu)}.trk li:before{content:"○";position:absolute;left:4px}.trk li.d{color:var(--ok);font-weight:600}.trk li.d:before{content:"●"}
+.demo{font-size:13px;margin-bottom:10px}
+.note{font-size:12.5px;color:var(--mu);text-align:center;margin:14px 0}
+</style>
+</head>
+<body>
+<header><b>BRGuru.lk</b><span>Company Incorporation · A member of Accfinz International (Pvt) Ltd · Prototype</span></header>
+<main>
+<div class="bar" id="bar"></div><div class="lbl" id="lbl"></div>
+<div class="demo"><button class="lnk" onclick="demo()">Fill with sample data</button></div>
+
+<div class="card" id="s0"><h2>Your company</h2><p class="sub">Tell us the name and what the business will do.</p>
+<label for="cname">Proposed company name</label><input id="cname" placeholder="e.g. CAR NEXT AUTO LANKA (PRIVATE) LIMITED" oninput="chkName()">
+<div id="nmsg"></div><div class="h">Spell it exactly as it should appear on your certificate.</div>
+<label for="sin">Sinhala name (optional)</label><input id="sin" placeholder="සිංහලෙන් ටයිප් කරන්න"><div class="h">Hard to type? Upload a photo of the handwritten name instead.</div><input type="file" accept="image/*" style="margin-top:6px">
+<label>Business activities (tap all that apply)</label><div class="chips" id="chips"></div>
+<label for="obj">Primary objective</label><input id="obj" placeholder="e.g. Vehicle import &amp; selling">
+<label for="oth">Other activities (one per line)</label><textarea id="oth" rows="2"></textarea>
+<div class="h">Importing or exporting? List every product you plan to handle.</div>
+<div class="row"><div><label for="cap">Number of shares</label><input id="cap" type="number" min="1" placeholder="100000"></div>
+<div><label for="cem">Company email</label><input id="cem" type="email" placeholder="name@company.lk"></div></div>
+</div>
+
+<div class="card" id="s1" hidden><h2>Registered address</h2><p class="sub">Choose from the lists, no typing needed.</p>
+<label for="adr">Address</label><input id="adr" placeholder="No., street, town">
+<div class="row"><div><label for="prv">Province</label><select id="prv" onchange="fillD()"></select></div><div><label for="dst">District</label><select id="dst" onchange="fillS()"></select></div></div>
+<div class="row"><div><label for="dsd">Divisional Secretariat</label><select id="dsd"></select></div><div><label for="gn">Grama Niladhari Division</label><input id="gn" placeholder="e.g. Makumbura South"></div></div>
+<label for="pc">Postal code</label><input id="pc" inputmode="numeric" maxlength="5" placeholder="10230">
+<div class="h">Demo uses a short sample list. The live site will use the full official list, with GN division suggestions.</div>
+<div class="w">No assessment number? You'll upload a GN officer letter or a utility bill in a director's name.</div>
+<input type="file" style="margin-top:6px">
+</div>
+
+<div class="card" id="sx" hidden><h2>Company structure</h2><p class="sub">Tell us who is involved. Next, we’ll ask each person for their own details.</p>
+<div class="row"><div><label for="nd">Number of directors</label><select id="nd" onchange="stx()"></select></div><div><label for="ns">Number of shareholders</label><select id="ns" onchange="stx()"></select></div></div>
+<label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" id="dsh" checked style="width:auto" onchange="stx()">The directors are also shareholders</label>
+<label>Company secretary</label><div id="secbox"></div>
+<div class="h">A local individual can act as secretary if stated capital is under Rs. 500,000 and annual turnover under Rs. 1,000,000. Otherwise a qualified company secretary is required.</div>
+<div class="g" id="stxmsg" style="margin-top:14px"></div></div>
+
+<div class="card" id="s2" hidden><h2>Details of each person</h2><p class="sub">Every director, shareholder and secretary listed must provide their own details.</p>
+<div id="people"></div><div class="tot" id="tot"></div>
+<button class="sec" style="margin-top:12px" onclick="split()">Split shares equally</button> <button class="sec" style="margin-top:12px" onclick="addP()">+ Add another person</button>
+<div class="h" style="margin-top:8px">A sole director can't also be the company secretary.</div>
+</div>
+
+<div class="card" id="s3" hidden><h2>Bank &amp; delivery <span style="font-weight:400;font-size:14px;color:var(--mu)">(optional)</span></h2><p class="sub">Skip if you don't need these yet.</p>
+<div class="row"><div><label for="bk">Bank</label><input id="bk" placeholder="e.g. Commercial Bank"></div><div><label for="br">Branch</label><input id="br"></div></div>
+<label for="op">Who can sign?</label><select id="op"><option value="">Choose</option><option>Any one signature</option><option>Any two signatures</option><option>All directors</option></select>
+<label for="dn">Delivery contact person</label><input id="dn"><div class="row"><div><label for="dp">Contact number</label><input id="dp" type="tel"></div><div><label for="da">Delivery address</label><input id="da"></div></div>
+</div>
+
+<div class="card" id="s4" hidden><h2>Review &amp; submit</h2><p class="sub">Please check carefully. Changes after registration may cost extra.</p>
+<dl class="sum" id="sum"></dl>
+<label style="display:flex;gap:8px;align-items:flex-start;font-weight:500"><input type="checkbox" id="ok" style="width:auto;margin-top:4px">I confirm the details are correct and agree to the terms and privacy notice.</label>
+</div>
+
+<div class="card" id="done" hidden><h2>✅ Application received</h2><p class="sub">Your reference: <b id="ref"></b></p>
+<ul class="trk"><li class="d">Submitted</li><li>Name approval</li><li>Documents ready for signing</li><li>Registered</li></ul>
+<p class="sub">You'll get updates by WhatsApp and email. (In the live site: payment step, document vault and live tracking.)</p>
+<button class="sec" onclick="location.reload()">Start over</button></div>
+
+<div id="err"></div>
+<div class="nav" id="nav"><button class="sec" id="bk2" onclick="go(-1)">Back</button><button class="pri" id="nx" onclick="go(1)">Continue</button></div>
+<div class="note">Prototype only – nothing is saved or sent.</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const T=["Company","Address","Structure","People","Bank & delivery","Review"],ORD=["s0","s1","sx","s2","s3","s4"];let cur=0,pn=0,SM="dir",SD=1,SIG="";
+["nd","ns"].forEach(id=>{$(id).innerHTML=[...Array(10)].map((_,i)=>'<option>'+(i+1)+'</option>').join("")});
+function plan(){const nd=+$("nd").value,ns=+$("ns").value,both=$("dsh").checked,a=[];
+for(let i=1;i<=nd;i++)a.push({t:"Director "+i,dir:1,sh:both&&i<=ns?1:0,sec:SM=="dir"&&SD==i?1:0});
+const ex=both?Math.max(0,ns-nd):ns;for(let i=1;i<=ex;i++)a.push({t:"Shareholder "+i,dir:0,sh:1,sec:0});
+if(SM=="sep")a.push({t:"Company secretary",dir:0,sh:0,sec:1});return a}
+function stx(){const nd=+$("nd").value;if(nd==1&&SM=="dir")SM="sep";if(SD>nd)SD=1;
+const r=(v,t,d)=>'<label style="font-weight:500;display:flex;gap:8px;align-items:center;margin:8px 0"><input type="radio" name="secm" style="width:auto" value="'+v+'"'+(SM==v?" checked":"")+(d?" disabled":"")+' onchange="SM=this.value;stx()">'+t+'</label>';
+let h=nd==1?'<div class="w" style="margin-top:0">With one director, the secretary must be a different person. We’ll ask for their details.</div>':'';
+h+=r("dir","One of the directors will also be the secretary",nd==1);
+if(SM=="dir"&&nd>1)h+='<select id="sd" onchange="SD=+this.value;stx()" style="margin-bottom:6px">'+[...Array(nd)].map((_,i)=>'<option value="'+(i+1)+'"'+(SD==i+1?" selected":"")+'>Director '+(i+1)+' is the secretary</option>').join("")+'</select>';
+h+=r("sep","Appoint a separate person as secretary")+r("svc","Use BRGuru’s qualified secretarial service (no details needed)");
+$("secbox").innerHTML=h;const pl=plan();
+$("stxmsg").innerHTML='<b>Next step:</b> we’ll collect details for '+pl.length+' '+(pl.length==1?'person':'people')+': '+pl.map(x=>x.t).join(", ")+'.'}
+function rebuild(){const sig=[$("nd").value,$("ns").value,$("dsh").checked,SM,SD].join();if(sig==SIG)return;SIG=sig;$("people").innerHTML="";pn=0;const pl=plan();pl.forEach(x=>addP(x));
+if(pl.filter(x=>x.sh).length==1){const c=[...document.querySelectorAll(".person")].find(e=>e.querySelector(".rs").checked);if(c)c.querySelector(".pp").value=100}tot()}
+function split(){const s=[...document.querySelectorAll(".person")].filter(e=>e.querySelector(".rs").checked);if(!s.length)return;const each=Math.floor(10000/s.length)/100;s.forEach((e,i)=>e.querySelector(".pp").value=i?each:+(100-each*(s.length-1)).toFixed(2));tot()}
+const ACT=["Vehicle import","Vehicle sales","Spare parts","Trading","Import/Export","IT & software","Construction","Consulting","Restaurant","Tourism","Agriculture","Garments"];
+const GEO={"Western":{"Colombo":["Colombo","Maharagama","Dehiwala","Kesbewa","Homagama"],"Gampaha":["Negombo","Gampaha","Wattala","Kelaniya"],"Kalutara":["Kalutara","Panadura","Horana"]},"Central":{"Kandy":["Kandy Four Gravets","Gangawata Korale","Udunuwara"],"Matale":["Matale","Dambulla"]},"Southern":{"Galle":["Galle Four Gravets","Hikkaduwa","Baddegama"],"Matara":["Matara","Weligama"]}};
+const BAD=["srilanka","sri lanka","state","government","corporation","group","holding","holdings"];
+const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function opt(el,arr,ph){el.innerHTML='<option value="">'+ph+'</option>'+arr.map(a=>'<option>'+a+'</option>').join('')}
+$("chips").innerHTML=ACT.map(a=>'<span class="chip" onclick="this.classList.toggle(\'on\')">'+a+'</span>').join('');
+opt($("prv"),Object.keys(GEO),"Select province");opt($("dst"),[],"Select district");opt($("dsd"),[],"Select division");
+function fillD(){opt($("dst"),Object.keys(GEO[$("prv").value]||{}),"Select district");fillS()}
+function fillS(){opt($("dsd"),(GEO[$("prv").value]||{})[$("dst").value]||[],"Select division")}
+function normName(v){return v.toUpperCase().replace(/\s+/g," ").trim()}
+function okSuffix(v){return /(\(PRIVATE\) LIMITED|\(PVT\) LTD|PRIVATE LIMITED|PVT LTD)\.?$/.test(normName(v))}
+function chkName(){const v=$("cname").value,m=$("nmsg");if(!v.trim()){m.innerHTML="";return}
+let h="";if(!okSuffix(v))h+='<div class="w">Name must end with (Private) Limited or (Pvt) Ltd. <button class="lnk" onclick="addSfx()">Add (Private) Limited</button></div>';else h+='<div class="g">Name format looks good ✓</div>';
+const low=v.toLowerCase();const f=BAD.filter(b=>new RegExp("\\b"+b+"\\b").test(low));if(f.length)h+='<div class="w">Restricted or sensitive word: '+f.join(", ")+'. This may delay approval.</div>';m.innerHTML=h}
+function addSfx(){$("cname").value=normName($("cname").value)+" (PRIVATE) LIMITED";chkName()}
+function nic(v){v=v.trim().toUpperCase();let y,d;
+if(/^\d{12}$/.test(v)){y=+v.slice(0,4);d=+v.slice(4,7)}else if(/^\d{9}[VX]$/.test(v)){y=1900+ +v.slice(0,2);d=+v.slice(2,5)}else return null;
+let f=d>500;if(f)d-=500;const lp=(y%4==0&&y%100!=0)||y%400==0;if(!lp&&d>59)d--;if(d<1||d>366||y<1900||y>2010)return null;
+const t=new Date(Date.UTC(y,0,d)),p=n=>String(n).padStart(2,"0");return{dob:p(t.getUTCDate())+"-"+p(t.getUTCMonth()+1)+"-"+t.getUTCFullYear(),g:f?"Female":"Male"}}
+function addP(s){pn++;const n=pn,div=document.createElement("div");div.className="person";div.id="p"+n;
+div.innerHTML='<h3><span>'+(s?s.t:'Additional person')+'</span>'+(!s?'<button class="lnk" onclick="this.closest(\'.person\').remove();tot()">Remove</button>':'')+'</h3>'+
+'<label>Full name (as on NIC)</label><input class="pn">'+
+'<div class="row"><div><label>NIC / Passport</label><input class="pc" oninput="nicU(this)"><div class="nm h"></div></div><div><label>Date of birth</label><input class="pd" readonly placeholder="Filled from NIC"></div></div>'+
+'<label>Role(s)</label><div class="roles"><label><input type="checkbox" class="rd" onchange="tot()">Director</label><label><input type="checkbox" class="rs" onchange="tot()">Shareholder</label><label><input type="checkbox" class="rc" onchange="tot()">Secretary</label></div>'+
+'<div class="row"><div><label>Shares held (%)</label><input type="number" class="pp" min="0" max="100" oninput="tot()"></div><div><label>Mobile</label><input class="pm" type="tel" placeholder="+94…"></div></div>'+
+'<label>Email</label><input class="pe" type="email"><label>Residential address</label><input class="pa"><label>NIC photo (front &amp; back)</label><input type="file" accept="image/*" capture="environment">';
+$("people").appendChild(div);if(s){div.querySelector(".rd").checked=!!s.dir;div.querySelector(".rs").checked=!!s.sh;div.querySelector(".rc").checked=!!s.sec}tot()}
+function nicU(el){const r=nic(el.value),m=el.closest(".person").querySelector(".nm"),d=el.closest(".person").querySelector(".pd");
+if(!el.value.trim()){m.textContent="";d.value="";return}
+if(r){d.value=r.dob;m.className="nm g";m.textContent="Valid NIC · "+r.g}else{d.value="";m.className="nm w";m.textContent="Check the NIC number (9 digits + V, or 12 digits)"}}
+function P(){return[...document.querySelectorAll(".person")].map(e=>({n:e.querySelector(".pn").value.trim(),c:e.querySelector(".pc").value.trim(),d:e.querySelector(".pd").value,dir:e.querySelector(".rd").checked,sh:e.querySelector(".rs").checked,sec:e.querySelector(".rc").checked,pct:+e.querySelector(".pp").value||0,m:e.querySelector(".pm").value.trim()}))}
+function tot(){const a=P(),s=a.filter(x=>x.sh).reduce((t,x)=>t+x.pct,0),t=$("tot");t.textContent="Total shareholding: "+s+"%";t.style.color=s==100?"var(--ok)":"var(--wn)"}
+function val(){const e=[];
+if(cur==0){const v=$("cname").value;if(!v.trim())e.push("Enter the proposed company name.");else if(!okSuffix(v))e.push("Company name must end with (Private) Limited or (Pvt) Ltd.");
+if(!document.querySelector(".chip.on")&&!$("oth").value.trim()&&!$("obj").value.trim())e.push("Choose at least one business activity.")}
+if(cur==1){if(!$("adr").value.trim())e.push("Enter the address.");if(!$("prv").value||!$("dst").value||!$("dsd").value)e.push("Select province, district and division.")}
+if(cur==3){const a=P();a.forEach((x,i)=>{if(!x.n)e.push("Person "+(i+1)+": enter the full name.");if(!nic(x.c))e.push("Person "+(i+1)+": enter a valid NIC.");if(!x.dir&&!x.sh&&!x.sec)e.push("Person "+(i+1)+": choose a role.")});
+const dirs=a.filter(x=>x.dir);if(!dirs.length)e.push("At least one director is required.");
+if(dirs.length==1&&dirs[0].sec)e.push("A sole director can't also be the secretary.");if(SM!="svc"&&a.filter(x=>x.sec).length!=1)e.push("Exactly one person must be the company secretary.");
+const sh=a.filter(x=>x.sh);if(sh.length&&sh.reduce((t,x)=>t+x.pct,0)!=100)e.push("Shareholding must total 100%.")}
+if(cur==5&&!$("ok").checked)e.push("Please tick the confirmation box.");
+return e}
+function show(){ORD.forEach((id,i)=>$(id).hidden=i!=cur);if(cur==3)rebuild();$("bar").innerHTML=T.map((_,i)=>'<i class="'+(i<=cur?"on":"")+'"></i>').join("");
+$("lbl").textContent="Step "+(cur+1)+" of 6 · "+T[cur];$("bk2").style.visibility=cur?"visible":"hidden";$("nx").textContent=cur==5?"Submit application":"Continue";
+if(cur==5)summ();window.scrollTo(0,0)}
+function go(d){$("err").textContent="";if(d>0){const e=val();if(e.length){$("err").textContent=e.join("\n");return}
+if(cur==5){ORD.forEach(id=>$(id).hidden=true);$("done").hidden=false;$("nav").hidden=true;$("bar").hidden=$("lbl").hidden=true;$("ref").textContent="BRG-2026-"+Math.floor(1000+Math.random()*9000);window.scrollTo(0,0);return}}
+cur=Math.max(0,Math.min(5,cur+d));show()}
+function summ(){const ch=[...document.querySelectorAll(".chip.on")].map(c=>c.textContent).concat($("oth").value.split("\n").filter(Boolean));
+const r=(k,v)=>v?'<dt>'+k+'</dt><dd>'+esc(v)+'</dd>':'';
+let h=r("Company name",$("cname").value)+r("Activities",ch.join(", "))+r("Objective",$("obj").value)+r("Shares",$("cap").value)+r("Email",$("cem").value)+
+r("Address",[$("adr").value,$("dsd").value,$("dst").value,$("prv").value,$("pc").value].filter(Boolean).join(", "));
+if(SM=="svc")h+=r("Secretary","BRGuru secretarial service");P().forEach((x,i)=>{h+=r("Person "+(i+1),x.n+" · "+x.c+" · "+x.d+" · "+[x.dir&&"Director",x.sh&&"Shareholder "+x.pct+"%",x.sec&&"Secretary"].filter(Boolean).join(", "))});
+h+=r("Bank",[$("bk").value,$("br").value,$("op").value].filter(Boolean).join(" · "));$("sum").innerHTML=h}
+function demo(){$("cname").value="CAR NEXT AUTO LANKA (PRIVATE) LIMITED";chkName();document.querySelectorAll(".chip").forEach((c,i)=>c.classList.toggle("on",i<3));
+$("obj").value="Vehicle import & selling";$("cap").value=100000;$("cem").value="carnextautolanka@gmail.com";$("adr").value="495/2 D.D. Kulathunga Mawatha, Makumbura, Kottawa";
+$("prv").value="Western";fillD();$("dst").value="Colombo";fillS();$("dsd").value="Maharagama";$("gn").value="Makumbura South";$("pc").value="10230";
+$("nd").value=1;$("ns").value=1;$("dsh").checked=true;SM="sep";stx();rebuild();const ps=document.querySelectorAll(".person"),p=ps[0],q=ps[1];
+p.querySelector(".pn").value="Galhenage Asanka Pushpa Kumara Jayawardana";p.querySelector(".pc").value="198319902921";nicU(p.querySelector(".pc"));p.querySelector(".pm").value="+94762550683";
+q.querySelector(".pn").value="Sample Secretary Perera";q.querySelector(".pc").value="199012312345";nicU(q.querySelector(".pc"));tot()}
+stx();show();
+</script>
+</body>
+</html>

@@ -14,8 +14,8 @@
 
 /* Light (default) theme variables */
 :root {
-  --primarylw: #173eff;
-  --primarylw-2: #3758f9;
+  --primarylw: #102f63;
+  --primarylw-2: #1f5aa6;
   --darklw: #11131b;
   --darklw-2: #1a1d25;
 
@@ -29,7 +29,7 @@
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 0%;
 
-  --primary: 230 100% 55%;
+  --primary: 216 72% 23%;
   --primary-foreground: #fff;
 
   --secondary: 0 0% 96%;
@@ -62,8 +62,8 @@
 
 /* Dark theme variables */
 .dark {
-  --primarylw: #173eff;
-  --primarylw-2: #3758f9;
+  --primarylw: #102f63;
+  --primarylw-2: #1f5aa6;
   --darklw: #11131b;
   --darklw-2: #1a1d25;
 
@@ -77,7 +77,7 @@
   --popover: 0 0% 5%;
   --popover-foreground: 0 0% 100%;
 
-  --primary: 230 100% 55%;
+  --primary: 216 72% 23%;
   --primary-foreground: #fff;
 
   --secondary: 0 0% 15%;

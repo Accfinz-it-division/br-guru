@@ -1,5 +1,14 @@
+:global(body) {
+  --theme-navy: #102f63;
+  --theme-navy-deep: #07162f;
+  --theme-teal: #1f5aa6;
+  --theme-teal-dark: #163f79;
+  --theme-gold: #f59a23;
+  --theme-gold-light: #ffc43d;
+}
+
 .heading {
-  background-color: #245c45;
+  background-color: var(--theme-navy);
   max-height: 50vh;
   text-align: center;
   margin: auto;
@@ -75,8 +84,8 @@
   z-index: 1;
 }
 .missionCard {
-  background: linear-gradient(180deg, #ffffff 0%, #f5f8f3 100%);
-  border: 1px solid rgba(17, 38, 31, 0.08);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f4eb 100%);
+  border: 1px solid rgba(16, 47, 99, 0.08);
   border-radius: 24px;
   padding: 1.8rem 1.5rem;
   box-shadow: 0 18px 35px rgba(16, 31, 27, 0.04);
@@ -95,8 +104,8 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #d3ef86, #245c45);
-  box-shadow: 0 0 0 6px rgba(36, 92, 69, 0.08);
+  background: linear-gradient(135deg, var(--theme-gold-light), var(--theme-gold));
+  box-shadow: 0 0 0 6px rgba(16, 47, 99, 0.08);
   animation: visible 2s ease-in-out infinite;
 }
 
@@ -118,7 +127,7 @@
   align-items: center;
   gap: 0.6rem;
   /* margin: 0 0 1rem; */
-  color: #245c45;
+  color: var(--theme-navy);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -130,3 +139,12 @@
     grid-template-columns: 1fr;
   }
 }
+:global(body) {
+  --theme-navy: #102f63;
+  --theme-navy-deep: #07162f;
+  --theme-teal: #1f5aa6;
+  --theme-teal-dark: #163f79;
+  --theme-gold: #f59a23;
+  --theme-gold-light: #ffc43d;
+}
+

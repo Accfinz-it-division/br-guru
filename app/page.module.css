@@ -105,7 +105,7 @@ body {
 .eyebrow span {
   width: 10px;
   height: 10px;
-  background: #83a954;
+  background: var(--theme-gold);
 }
 
 .h2section{
@@ -219,7 +219,7 @@ body {
 
 .socialIcon:hover {
   border-radius: 100%;
-  background-color: rgb(44, 95, 197);
+  background-color: var(--theme-teal);
   transform: scale(1.1);
   transition: transform 0.2s ease-in-out;
 }
@@ -953,12 +953,12 @@ body {
 }
 
 :global(body) {
-  --theme-navy: #14283f;
-  --theme-navy-deep: #0c1c30;
-  --theme-teal: #167c79;
-  --theme-teal-dark: #116663;
-  --theme-gold: #c99a32;
-  --theme-gold-light: #f0d58d;
+  --theme-navy: #102f63;
+  --theme-navy-deep: #07162f;
+  --theme-teal: #1f5aa6;
+  --theme-teal-dark: #163f79;
+  --theme-gold: #f59a23;
+  --theme-gold-light: #ffc43d;
   width: 100%;
   overflow-x: hidden;
   background: #f7f6f1;

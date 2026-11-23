@@ -158,7 +158,6 @@ const secretarialServices = [
 ];
 
 export default function Services() {
-
     return (<>
         <div id="sevice-hero-heading" className={styles.heading}>
             <p className={styles.headingParagrapgh}>
@@ -178,9 +177,7 @@ export default function Services() {
                 </div>
             ))}
         </main >
-        <a className={styles.arrowLink} href="#sevice-hero-heading">
-        <img className={styles.arrow} src="/arrow.png" alt="arrow" />
-      </a>
+        
         <p className={styles.eyebrow}>Tax Consultancy Services</p>
         <main className={styles.valueGrid}>
 
@@ -192,7 +189,9 @@ export default function Services() {
                     </article>
                 </div>
             ))}
-        </main >
+        </main ><a className={styles.arrowLink} href="#sevice-hero-heading">
+        <img className={styles.arrow} src="/arrow.png" alt="arrow" />
+      </a>
         <p className={styles.eyebrow}>Company Secretarial Services</p>
         <main className={styles.valueGrid}>
 

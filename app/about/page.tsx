@@ -125,8 +125,10 @@ export default function About() {
         <main>
             <div>
                 <img ref={imageRef2} className={styles.image} src="/company-01.jpg" alt="" />
-                <img ref={imageRef} className={styles.imageMobile} src="/about-02.png" alt="" />
-                <section ref={statsRef} className={styles.stats} aria-label="Company highlights">
+                <img ref={imageRef} className={styles.imageMobile} src="/about-02.png" alt="" /><p className={styles.heading}>About Us</p>
+                <div className={styles.background}>
+                  
+                <section id="about-hero-heading" ref={statsRef} className={styles.stats} aria-label="Company highlights">
                     {highlights.map((item) => (
                         <div key={item.label} className={styles.statCard}>
                             <span data-count={item.value.match(/^\d+/)?.[0]} data-suffix={item.value.match(/\D+$/)?.[0] ?? ""}>
@@ -149,33 +151,45 @@ export default function About() {
                     </p>
 
                 </div>
-                <div className={styles.missionTitle}>
-                    <p className={styles.eyebrow}>Mission & VISION,</p>
-                </div>
-                <div className={styles.missionVision}>
+                <a className={styles.arrowLink} href="#about-hero-heading">
+        <img className={styles.arrow} src="/arrow.png" alt="arrow" />
+      </a>
+                <section className={styles.MissionandVision} aria-labelledby="mission-vision-title">
+                    <div className={styles.missionHeading}>
+                        <p className={styles.eyebrow}>What guides us</p>
+                        <h2 id="mission-vision-title">A clear purpose. A vision for lasting growth.</h2>
+                        <p>We make trusted business guidance more accessible for every stage of your journey.</p>
+                    </div>
 
                     <div className={styles.missionGrid}>
                         <article className={styles.missionCard}>
-                            {/* <span>Mission&Vision</span> */}
+                            <div className={styles.missionCardTop}>
+                                <span className={styles.missionLabel}>Our mission</span>
+                                <span className={styles.missionNumber} aria-hidden="true">01</span>
+                            </div>
                             <h3>To make expert business support approachable, relevant, and results-driven.</h3>
                             <p>
                                 We help clients manage compliance, planning, and growth challenges with practical advice
                                 tailored to their goals and stage of business development.
                             </p>
                         </article>
-                        {/* <img className={styles.MissionImage} src="/image.png" alt="" /> */}
-                        {/* <article className={styles.missionCard}>
-                            <span>Vision</span>
-                            <h3>To become the trusted partner businesses rely on for sustainable growth.</h3>
+
+                        <article className={`${styles.missionCard} ${styles.visionCard}`}>
+                            <div className={styles.missionCardTop}>
+                                <span className={styles.missionLabel}>Our vision</span>
+                                <span className={styles.missionNumber} aria-hidden="true">02</span>
+                            </div>
+                            <h3>To be the trusted partner businesses rely on for sustainable growth.</h3>
                             <p>
-                                Our vision is to support entrepreneurs and SMEs across Sri Lanka with dependable,
+                                We aim to empower entrepreneurs and SMEs across Sri Lanka with dependable,
                                 forward-thinking guidance that strengthens long-term performance.
                             </p>
-                        </article> */}
+                        </article>
                     </div>
-
+                </section>
                 </div>
-            </div>
+              </div>
+            {/* </div> */}
 
 
             {/* <section className={styles.hero}>
